@@ -11,188 +11,186 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <style>
+      /* Page-specific overrides to match live site design */
+      .workdrive-page {
+        background: #ffffff;
+        color: #1a1a2e;
+      }
+      .workdrive-page .section {
+        padding: 4rem 0;
+      }
+      .workdrive-page .section:nth-of-type(even) {
+        background: #f8f9fc;
+      }
+      .workdrive-page .section:nth-of-type(odd) {
+        background: #ffffff;
+      }
       .workdrive-hero {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-        position: relative;
-        overflow: hidden;
+        background: #ffffff;
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+        text-align: left;
       }
-      .workdrive-hero::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        right: -20%;
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(circle, rgba(255, 189, 89, 0.15) 0%, transparent 70%);
-        border-radius: 50%;
-        pointer-events: none;
+      .workdrive-hero .eyebrow {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        color: #383A99;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        padding: 0.4rem 0.85rem;
       }
-      .workdrive-hero::after {
-        content: '';
-        position: absolute;
-        bottom: -30%;
-        left: -10%;
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle, rgba(56, 58, 153, 0.2) 0%, transparent 70%);
-        border-radius: 50%;
-        pointer-events: none;
+      .workdrive-hero h1 {
+        color: #1a1a2e;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        margin: 1rem 0;
+        max-width: 100%;
       }
-      .workdrive-hero .home-hero-copy {
-        position: relative;
-        z-index: 1;
+      .workdrive-hero p {
+        color: #555b70;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        max-width: 60ch;
+        margin-bottom: 2rem;
       }
-      .video-section {
-        background: linear-gradient(180deg, #f8f9fc 0%, #ffffff 100%);
+      .workdrive-hero .button-primary {
+        background: linear-gradient(135deg, #ff7b54, #ff4b2b);
+        border: none;
+        border-radius: 999px;
+        padding: 0.85rem 1.8rem;
+        font-weight: 700;
+        box-shadow: 0 8px 20px rgba(255, 75, 43, 0.25);
       }
-      .video-wrapper {
+      .workdrive-hero .button-secondary {
+        background: #ffffff;
+        color: #383A99;
+        border: 1px solid #d0d5e0;
+        border-radius: 999px;
+        padding: 0.85rem 1.8rem;
+        font-weight: 700;
+      }
+      .workdrive-hero .hero-actions {
+        gap: 1rem;
+        justify-content: flex-start;
+      }
+      .feature-card-white {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+        border: 1px solid #f0f2f5;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .feature-card-white:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+      .feature-card-white h3 {
+        color: #1a1a2e;
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+      }
+      .feature-card-white p {
+        color: #6b7280;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      .problem-solution-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+      .problem-box, .solution-box {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 2.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      }
+      .problem-box h3 { color: #ff5757; margin-bottom: 1.5rem; }
+      .solution-box h3 { color: #2f9b69; margin-bottom: 1.5rem; }
+      .problem-box li { color: #555b70; margin-bottom: 0.75rem; list-style: none; padding-left: 1.5rem; position: relative; }
+      .problem-box li::before { content: '✕'; position: absolute; left: 0; color: #ff5757; font-weight: 700; }
+      .solution-box li { color: #555b70; margin-bottom: 0.75rem; list-style: none; padding-left: 1.5rem; position: relative; }
+      .solution-box li::before { content: '✓'; position: absolute; left: 0; color: #2f9b69; font-weight: 700; }
+      .video-container {
         position: relative;
         padding-bottom: 56.25%;
         height: 0;
         overflow: hidden;
         border-radius: 20px;
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
-        border: 3px solid #ffffff;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
       }
-      .video-wrapper iframe {
+      .video-container iframe {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        top: 0; left: 0; width: 100%; height: 100%;
       }
-      .feature-icon {
-        width: 56px;
-        height: 56px;
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        background: linear-gradient(135deg, #383a99 0%, #5f63dd 100%);
-        color: #ffffff;
-      }
-      .pricing-card {
+      .pricing-card-clean {
+        background: #ffffff;
+        border-radius: 24px;
+        padding: 2.5rem;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+        border: 1px solid #f0f2f5;
         position: relative;
         overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
-      .pricing-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+      .pricing-card-clean.popular {
+        border: 2px solid #383A99;
       }
-      .pricing-card.popular {
-        border: 2px solid #383a99;
-      }
-      .popular-badge {
-        position: absolute;
-        top: 16px;
-        right: -32px;
-        background: linear-gradient(135deg, #ff625d, #ff7f63);
-        color: #ffffff;
-        padding: 4px 40px;
-        font-size: 0.75rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        transform: rotate(45deg);
-      }
-      .price-amount {
+      .pricing-card-clean .price {
         font-size: 3.5rem;
         font-weight: 800;
         color: #1a1a2e;
-        line-height: 1;
-        margin: 1.5rem 0 0.5rem;
+        margin: 1rem 0;
       }
-      .price-period {
+      .pricing-card-clean .period {
+        color: #6b7280;
         font-size: 1rem;
-        color: var(--text-soft);
-        font-weight: 500;
       }
-      .review-stars {
-        color: #ffc107;
+      .review-card-clean {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      }
+      .review-stars { color: #ffc107; margin-bottom: 1rem; }
+      .faq-item {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 1.5rem 2rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      }
+      .faq-item h3 {
         font-size: 1.1rem;
         margin-bottom: 0.75rem;
-        letter-spacing: 2px;
+        color: #1a1a2e;
       }
-      .faq-card {
-        transition: all 0.3s ease;
+      .faq-item p {
+        color: #6b7280;
+        line-height: 1.6;
       }
-      .faq-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-      }
-      .faq-card h3 {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-      }
-      .faq-icon {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #383a99 0%, #5f63dd 100%);
-        color: #ffffff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.85rem;
-        font-weight: 700;
-        flex-shrink: 0;
-      }
-      .problem-solution {
-        background: linear-gradient(135deg, #f8f9fc 0%, #eef0ff 100%);
-        border-radius: 20px;
-        padding: 2.5rem;
-      }
-      .problem-list li::before {
-        content: '✕';
-        color: #ff5757;
-        font-weight: 700;
-        margin-right: 0.5rem;
-      }
-      .solution-list li::before {
-        content: '✓';
-        color: #2f9b69;
-        font-weight: 700;
-        margin-right: 0.5rem;
-      }
-      .cta-section {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-        color: #ffffff;
+      .cta-panel-dark {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
         border-radius: 24px;
         padding: 4rem 3rem;
         text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-      .cta-section::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        right: -20%;
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle, rgba(255, 189, 89, 0.1) 0%, transparent 70%);
-        border-radius: 50%;
-      }
-      .cta-section h2 {
         color: #ffffff;
-        position: relative;
-        z-index: 1;
       }
-      .cta-section p {
-        color: rgba(255, 255, 255, 0.85);
-        position: relative;
-        z-index: 1;
-      }
-      .cta-section .cta-actions {
-        position: relative;
-        z-index: 1;
+      .cta-panel-dark h2 { color: #ffffff; margin-bottom: 1rem; }
+      .cta-panel-dark p { color: rgba(255,255,255,0.8); margin-bottom: 2rem; }
+      @media (max-width: 768px) {
+        .problem-solution-grid { grid-template-columns: 1fr; }
+        .workdrive-hero { text-align: center; }
+        .workdrive-hero .hero-actions { justify-content: center; }
       }
     </style>
   </head>
-  <body class="home-page">
+  <body class="workdrive-page">
     <div class="page-shell">
       <header class="site-header">
         <div class="container">
@@ -209,80 +207,32 @@
               <div class="nav-group">
                 <a class="nav-trigger" href="services.html">Services</a>
                 <div class="nav-group-menu">
-                  <a href="services.html">
-                    <strong>Services Overview</strong>
-                    <span>CRM consulting, workflow automation and integration services.</span>
-                  </a>
-                  <a href="crm-consulting.html">
-                    <strong>CRM Consulting</strong>
-                    <span>Zoho CRM setup, customization, migration, training, and optimization.</span>
-                  </a>
-                  <a href="ai-crm-automation.html">
-                    <strong>AI CRM Automation</strong>
-                    <span>AI workflows, lead qualification, follow-ups, and Zia/AI agent setup.</span>
-                  </a>
-                  <a href="crm-integration.html">
-                    <strong>CRM Integration</strong>
-                    <span>Connect Zoho CRM with websites, eCommerce, and business apps.</span>
-                  </a>
-                  <a href="custom-crm-development.html">
-                    <strong>Custom CRM Development</strong>
-                    <span>Custom widgets, portals, dashboards, and marketplace extensions.</span>
-                  </a>
-                  <a href="crm-audit-support.html">
-                    <strong>CRM Audit &amp; Support</strong>
-                    <span>Health checks, AI readiness audits, and managed support.</span>
-                  </a>
+                  <a href="services.html"><strong>Services Overview</strong><span>CRM consulting, workflow automation and integration services.</span></a>
+                  <a href="crm-consulting.html"><strong>CRM Consulting</strong><span>Zoho CRM setup, customization, migration, training, and optimization.</span></a>
+                  <a href="ai-crm-automation.html"><strong>AI CRM Automation</strong><span>AI workflows, lead qualification, follow-ups, and Zia/AI agent setup.</span></a>
+                  <a href="crm-integration.html"><strong>CRM Integration</strong><span>Connect Zoho CRM with websites, eCommerce, and business apps.</span></a>
+                  <a href="custom-crm-development.html"><strong>Custom CRM Development</strong><span>Custom widgets, portals, dashboards, and marketplace extensions.</span></a>
+                  <a href="crm-audit-support.html"><strong>CRM Audit &amp; Support</strong><span>Health checks, AI readiness audits, and managed support.</span></a>
                 </div>
               </div>
               <div class="nav-group">
                 <a class="nav-trigger" href="extensions.html">Extensions</a>
                 <div class="nav-group-menu">
-                  <a href="extensions.html">
-                    <strong>Extensions Overview</strong>
-                    <span>Zoho CRM extensions, widgets, and marketplace tools.</span>
-                  </a>
-                  <a href="workdrive-zoho-crm.html">
-                    <strong>WorkDrive for Zoho CRM</strong>
-                    <span>Manage, sync, and organize WorkDrive files inside Zoho CRM.</span>
-                  </a>
-                  <a href="sharepoint-zoho-crm.html">
-                    <strong>SharePoint for Zoho CRM</strong>
-                    <span>Connect SharePoint document management with Zoho CRM records.</span>
-                  </a>
-                  <a href="google-address-toolkit.html">
-                    <strong>Google Address Toolkit</strong>
-                    <span>Improve address accuracy and location-based CRM workflows.</span>
-                  </a>
-                  <a href="easy-email-zoho-crm.html">
-                    <strong>Easy Email for Zoho CRM</strong>
-                    <span>Manage CRM email activity with a faster, cleaner workflow.</span>
-                  </a>
-                  <a href="dropbox-zoho-crm.html">
-                    <strong>Dropbox for Zoho CRM</strong>
-                    <span>Access and manage Dropbox files from inside Zoho CRM.</span>
-                  </a>
-                  <a href="onedrive-zoho-crm.html">
-                    <strong>OneDrive for Zoho CRM</strong>
-                    <span>Connect OneDrive files and folders with Zoho CRM records.</span>
-                  </a>
+                  <a href="extensions.html"><strong>Extensions Overview</strong><span>Zoho CRM extensions, widgets, and marketplace tools.</span></a>
+                  <a href="workdrive-zoho-crm.html"><strong>WorkDrive for Zoho CRM</strong><span>Manage, sync, and organize WorkDrive files inside Zoho CRM.</span></a>
+                  <a href="sharepoint-zoho-crm.html"><strong>SharePoint for Zoho CRM</strong><span>Connect SharePoint document management with Zoho CRM records.</span></a>
+                  <a href="google-address-toolkit.html"><strong>Google Address Toolkit</strong><span>Improve address accuracy and location-based CRM workflows.</span></a>
+                  <a href="easy-email-zoho-crm.html"><strong>Easy Email for Zoho CRM</strong><span>Manage CRM email activity with a faster, cleaner workflow.</span></a>
+                  <a href="dropbox-zoho-crm.html"><strong>Dropbox for Zoho CRM</strong><span>Access and manage Dropbox files from inside Zoho CRM.</span></a>
+                  <a href="onedrive-zoho-crm.html"><strong>OneDrive for Zoho CRM</strong><span>Connect OneDrive files and folders with Zoho CRM records.</span></a>
                 </div>
               </div>
               <div class="nav-group">
                 <a class="nav-trigger" href="blog.html">Resources</a>
                 <div class="nav-group-menu">
-                  <a href="blog.html">
-                    <strong>Blog</strong>
-                    <span>Practical guides on CRM consulting and Zoho automation.</span>
-                  </a>
-                  <a href="case-studies.html">
-                    <strong>Case Studies</strong>
-                    <span>Real workflow improvements and CRM automation results.</span>
-                  </a>
-                  <a href="guides.html">
-                    <strong>Guides</strong>
-                    <span>Step-by-step CRM, automation, and integration resources.</span>
-                  </a>
+                  <a href="blog.html"><strong>Blog</strong><span>Practical guides on CRM consulting and Zoho automation.</span></a>
+                  <a href="case-studies.html"><strong>Case Studies</strong><span>Real workflow improvements and CRM automation results.</span></a>
+                  <a href="guides.html"><strong>Guides</strong><span>Step-by-step CRM, automation, and integration resources.</span></a>
                 </div>
               </div>
               <a href="process.html">Our Process</a>
@@ -296,53 +246,14 @@
       </header>
 
       <main>
-        <section class="section home-hero workdrive-hero">
+        <section class="section workdrive-hero">
           <div class="container">
-            <div class="home-hero-grid">
-              <div class="home-hero-copy">
-                <div class="eyebrow">Zoho Extension</div>
-                <h1>WorkDrive for Zoho CRM</h1>
-                <p>Automate file management with WorkDrive Zoho CRM integration. Auto-create folders, sync attachments, manage files in CRM. All modules supported. Free trial available from $10/month.</p>
-                <div class="hero-actions">
-                  <a class="button button-primary" href="https://marketplace.zoho.com/app/crm/workdrive-for-zoho-crm" target="_blank" rel="noreferrer">Start Free Trial</a>
-                  <a class="button button-secondary" href="extensions.html">Back to Extensions</a>
-                </div>
-                <div class="hero-client-marquee" aria-label="Client logos">
-                  <span class="hero-client-label">Trusted by teams using our CRM and extension solutions</span>
-                  <div class="hero-client-marquee-shell">
-                    <div class="hero-client-track">
-                      <div class="hero-client-logo"><img src="images/client%20logos/699715e748dd58fa4875b7b4_logo.svg" alt="Client logo" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/699715f397e7c1d1fb9892f4_logo%2520(2).svg" alt="Client logo" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/699715f8ae99dde05f6742f7_logo%2520(3).svg" alt="Client logo" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/699715fc5ada89b1995bbfe5_Logo%2520(4).svg" alt="Client logo" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/699716014cc604ba281bd144_66351ee5724abf96338ce8b0_humana-customer_bw_logo%25203.svg" alt="Humana logo" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/69971609b068caad6e83f741_logo%2520(5).svg" alt="Client logo" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/6997160d52c4ed3b6cc16757_logo%2520(6).svg" alt="Client logo" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/6a0d61d53ad492e4d9411f5c_verizon-logo_light.svg" alt="Verizon logo" loading="lazy" /></div>
-                    </div>
-                    <div class="hero-client-track" aria-hidden="true">
-                      <div class="hero-client-logo"><img src="images/client%20logos/699715e748dd58fa4875b7b4_logo.svg" alt="" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/699715f397e7c1d1fb9892f4_logo%2520(2).svg" alt="" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/699715f8ae99dde05f6742f7_logo%2520(3).svg" alt="" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/699715fc5ada89b1995bbfe5_Logo%2520(4).svg" alt="" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/699716014cc604ba281bd144_66351ee5724abf96338ce8b0_humana-customer_bw_logo%25203.svg" alt="" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/69971609b068caad6e83f741_logo%2520(5).svg" alt="" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/6997160d52c4ed3b6cc16757_logo%2520(6).svg" alt="" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/6a0d61d53ad492e4d9411f5c_verizon-logo_light.svg" alt="" loading="lazy" /></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section video-section">
-          <div class="container">
-            <div class="eyebrow">See How It Looks</div>
-            <h2 style="margin-bottom: 2rem;">Watch WorkDrive for Zoho CRM in Action</h2>
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/0iRX0FY_6P8" title="WorkDrive for Zoho CRM Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="eyebrow">ZOHO EXTENSION</div>
+            <h1>WorkDrive for Zoho CRM</h1>
+            <p>Automate file management with WorkDrive Zoho CRM integration. Auto-create folders, sync attachments, manage files in CRM. All modules supported. Free trial available from $10/month.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="https://marketplace.zoho.com/app/crm/workdrive-for-zoho-crm" target="_blank" rel="noreferrer">Start Free Trial</a>
+              <a class="button button-secondary" href="extensions.html">Back to Extensions</a>
             </div>
           </div>
         </section>
@@ -350,31 +261,26 @@
         <section class="section">
           <div class="container">
             <div class="eyebrow">Overview</div>
-            <h2 style="margin-bottom: 2rem;">WorkDrive Extension For Zoho CRM</h2>
+            <h2 style="margin-bottom: 2rem; color: #1a1a2e;">WorkDrive Extension For Zoho CRM</h2>
             <div class="split-grid">
               <div class="copy">
                 <p>The WorkDrive for Zoho CRM enables CRM users to view, create, update, rename, delete, and share all files, folders, and nested sub-folders associated with records through a widget and workflow for all standard and custom modules.</p>
                 <p>Attachments from your respective CRM records can be synced and stored into your associated WorkDrive folder. By integrating WorkDrive with Zoho CRM, you can perform day-to-day operations inside Zoho CRM without going to WorkDrive.</p>
-                <p>Folders are created using workflow triggers and can add multiple folder structures based on specific requirements. You don't need to create folders on record create—you can set up workflows and define how folders are created and where to save the ID for further use.</p>
               </div>
               <div class="grid-2">
-                <article class="card">
-                  <div class="feature-icon">📦</div>
+                <article class="feature-card-white">
                   <h3>All Module Support</h3>
                   <p>Compatible with both standard and custom modules of Zoho CRM, providing seamless integration across your entire CRM platform.</p>
                 </article>
-                <article class="card">
-                  <div class="feature-icon">️</div>
+                <article class="feature-card-white">
                   <h3>Customizable Settings</h3>
                   <p>Adjustable settings that can be customized to suit individual preferences and requirements.</p>
                 </article>
-                <article class="card">
-                  <div class="feature-icon">✨</div>
+                <article class="feature-card-white">
                   <h3>Intuitive Design</h3>
                   <p>Accessing and managing your files within Zoho CRM becomes effortless, enhancing your overall user experience.</p>
                 </article>
-                <article class="card">
-                  <div class="feature-icon">🚀</div>
+                <article class="feature-card-white">
                   <h3>High Performance</h3>
                   <p>Designed with a focus on performance, enabling rapid execution of tasks and workflows.</p>
                 </article>
@@ -386,31 +292,29 @@
         <section class="section">
           <div class="container">
             <div class="eyebrow">Solutions</div>
-            <h2 style="margin-bottom: 2rem;">Common Document Problems — And How We Fix Them</h2>
-            <div class="problem-solution">
-              <div class="split-grid">
-                <div class="copy">
-                  <h3 style="color: #ff5757; margin-bottom: 1rem;"> What Users Struggle With</h3>
-                  <ul class="feature-list problem-list">
-                    <li>Files scattered everywhere, impossible to find</li>
-                    <li>Manual folder creation wastes hours weekly</li>
-                    <li>Constantly switching between CRM and WorkDrive</li>
-                    <li>CRM storage limits hit fast, forcing file deletion</li>
-                    <li>Messy, inconsistent folder structures across teams</li>
-                    <li>Version control chaos and lost file changes</li>
-                  </ul>
-                </div>
-                <div class="copy">
-                  <h3 style="color: #2f9b69; margin-bottom: 1rem;">✅ How Our Extension Helps</h3>
-                  <ul class="feature-list solution-list">
-                    <li>Centralized WorkDrive storage synced with every CRM record</li>
-                    <li>100% automated folder creation using workflow triggers</li>
-                    <li>Manage all files directly inside Zoho CRM interface</li>
-                    <li>Unlimited WorkDrive storage with automatic attachment sync</li>
-                    <li>Standardized folder templates applied automatically</li>
-                    <li>Built-in version history, collaboration, and secure sharing</li>
-                  </ul>
-                </div>
+            <h2 style="margin-bottom: 2rem; color: #1a1a2e;">Common Document Problems — And How We Fix Them</h2>
+            <div class="problem-solution-grid">
+              <div class="problem-box">
+                <h3>What Users Struggle With</h3>
+                <ul>
+                  <li>Files scattered everywhere, impossible to find</li>
+                  <li>Manual folder creation wastes hours weekly</li>
+                  <li>Constantly switching between CRM and WorkDrive</li>
+                  <li>CRM storage limits hit fast, forcing file deletion</li>
+                  <li>Messy, inconsistent folder structures across teams</li>
+                  <li>Version control chaos and lost file changes</li>
+                </ul>
+              </div>
+              <div class="solution-box">
+                <h3>How Our Extension Helps</h3>
+                <ul>
+                  <li>Centralized WorkDrive storage synced with every CRM record</li>
+                  <li>100% automated folder creation using workflow triggers</li>
+                  <li>Manage all files directly inside Zoho CRM interface</li>
+                  <li>Unlimited WorkDrive storage with automatic attachment sync</li>
+                  <li>Standardized folder templates applied automatically</li>
+                  <li>Built-in version history, collaboration, and secure sharing</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -418,38 +322,42 @@
 
         <section class="section">
           <div class="container">
+            <div class="eyebrow">See How It Looks</div>
+            <h2 style="margin-bottom: 2rem; color: #1a1a2e;">Watch WorkDrive for Zoho CRM in Action</h2>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/0iRX0FY_6P8" title="WorkDrive for Zoho CRM Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container">
             <div class="eyebrow">Features</div>
-            <h2 style="margin-bottom: 2rem;">Everything You Need for Seamless File Management</h2>
+            <h2 style="margin-bottom: 2rem; color: #1a1a2e;">Everything You Need for Seamless File Management</h2>
             <div class="grid-3">
-              <article class="card">
-                <div class="feature-icon">📁</div>
+              <article class="feature-card-white">
                 <h3>Access Files & Folders in CRM</h3>
-                <p>Access and manipulate your Zoho WorkDrive files and folders seamlessly from within Zoho CRM for standard modules (Leads, Contacts, Accounts, Deals, and Campaigns). Full support for custom modules included.</p>
+                <p>Access and manipulate your Zoho WorkDrive files and folders seamlessly from within Zoho CRM for standard modules.</p>
               </article>
-              <article class="card">
-                <div class="feature-icon">👁️</div>
+              <article class="feature-card-white">
                 <h3>View Images & PDFs</h3>
-                <p>View Zoho WorkDrive images and PDFs directly from within your CRM. No more hassle of downloading or opening separate applications—simply access and preview your files seamlessly.</p>
+                <p>View Zoho WorkDrive images and PDFs directly from within your CRM without downloading.</p>
               </article>
-              <article class="card">
-                <div class="feature-icon"></div>
+              <article class="feature-card-white">
                 <h3>Search Files & Folders</h3>
-                <p>Simplify your file search process with our extension widget, allowing you to quickly find and access your desired files and folders from within your CRM.</p>
+                <p>Simplify your file search process with our extension widget to quickly find desired files.</p>
               </article>
-              <article class="card">
-                <div class="feature-icon">🔄</div>
+              <article class="feature-card-white">
                 <h3>Sync CRM Attachments</h3>
-                <p>Automatically sync and share Zoho CRM attachments to WorkDrive. Keep all your documents organized and accessible without manual effort.</p>
+                <p>Automatically sync and share Zoho CRM attachments to WorkDrive for better organization.</p>
               </article>
-              <article class="card">
-                <div class="feature-icon">⚡</div>
+              <article class="feature-card-white">
                 <h3>Custom Actions</h3>
-                <p>Customize workflows for effortlessly creating, renaming, or deleting WorkDrive folders, all based on specific conditions and triggers.</p>
+                <p>Customize workflows for creating, renaming, or deleting WorkDrive folders based on conditions.</p>
               </article>
-              <article class="card">
-                <div class="feature-icon">📂</div>
+              <article class="feature-card-white">
                 <h3>Automatic Folder Creation</h3>
-                <p>Upon creating a record for Leads, Contacts, Accounts, Deals, or Campaigns, a corresponding WorkDrive folder is automatically generated as a centralized location for associated files.</p>
+                <p>Automatically generate WorkDrive folders when new records are created in CRM.</p>
               </article>
             </div>
           </div>
@@ -458,34 +366,21 @@
         <section class="section">
           <div class="container">
             <div class="eyebrow">Pricing</div>
-            <h2 style="margin-bottom: 2rem;">Flexible Plans to Suit Your Needs</h2>
+            <h2 style="margin-bottom: 2rem; color: #1a1a2e;">Flexible Plans to Suit Your Needs</h2>
             <div class="grid-2">
-              <article class="card pricing-card" style="text-align: center;">
+              <article class="pricing-card-clean">
                 <div class="pill">Monthly</div>
-                <div class="price-amount">$10</div>
-                <div class="price-period">per month</div>
-                <p style="margin-top: 1rem;">Full access to all features and benefits of our extension. Pay month-to-month with the flexibility to scale as your business evolves.</p>
-                <ul class="feature-list" style="text-align: left; margin: 1.5rem 0;">
-                  <li>All standard modules supported</li>
-                  <li>Automatic folder creation</li>
-                  <li>File sync & preview</li>
-                  <li>Email support</li>
-                </ul>
-                <a class="button button-primary" href="https://marketplace.zoho.com/app/crm/workdrive-for-zoho-crm" target="_blank" rel="noreferrer" style="margin-top: 1rem; width: 100%;">Start Free Trial</a>
+                <div class="price">$10</div>
+                <div class="period">per month</div>
+                <p style="margin-top: 1rem; color: #6b7280;">Full access to all features. Pay month-to-month with flexibility to scale.</p>
+                <a class="button button-primary" href="https://marketplace.zoho.com/app/crm/workdrive-for-zoho-crm" target="_blank" rel="noreferrer" style="margin-top: 1.5rem; width: 100%;">Try Now</a>
               </article>
-              <article class="card pricing-card popular" style="text-align: center;">
-                <div class="popular-badge">Best Value</div>
-                <div class="pill">Yearly — Save 16%</div>
-                <div class="price-amount">$100</div>
-                <div class="price-period">per year</div>
-                <p style="margin-top: 1rem;">Same comprehensive features and benefits with a discounted rate for committing to an annual subscription. A cost-effective choice for long-term investment.</p>
-                <ul class="feature-list" style="text-align: left; margin: 1.5rem 0;">
-                  <li>Everything in Monthly plan</li>
-                  <li>Priority support</li>
-                  <li>Advanced workflow triggers</li>
-                  <li>16% savings</li>
-                </ul>
-                <a class="button button-primary" href="https://marketplace.zoho.com/app/crm/workdrive-for-zoho-crm" target="_blank" rel="noreferrer" style="margin-top: 1rem; width: 100%;">Start Free Trial</a>
+              <article class="pricing-card-clean popular">
+                <div class="pill" style="background: #383A99; color: #fff;">Yearly — Save 16%</div>
+                <div class="price">$100</div>
+                <div class="period">per year</div>
+                <p style="margin-top: 1rem; color: #6b7280;">Same features with a discounted rate. Cost-effective for long-term investment.</p>
+                <a class="button button-primary" href="https://marketplace.zoho.com/app/crm/workdrive-for-zoho-crm" target="_blank" rel="noreferrer" style="margin-top: 1.5rem; width: 100%;">Try Now</a>
               </article>
             </div>
           </div>
@@ -494,37 +389,22 @@
         <section class="section">
           <div class="container">
             <div class="eyebrow">Ratings & Reviews</div>
-            <h2 style="margin-bottom: 2rem;">Trusted by Customers Worldwide</h2>
+            <h2 style="margin-bottom: 2rem; color: #1a1a2e;">Trusted by Customers Worldwide</h2>
             <div class="grid-3">
-              <article class="card">
+              <article class="review-card-clean">
                 <div class="review-stars">★★★★★</div>
                 <p>"We are really happy with this extension. Emran has been super helpful every step of the way!"</p>
                 <strong>— Zoho Admin</strong>
               </article>
-              <article class="card">
+              <article class="review-card-clean">
                 <div class="review-stars">★★★★★</div>
-                <p>"Easy WorkDrive for Zoho CRM has been great. Awesome automated features and support has been first rate. Each time I needed assistance, support was quick and efficient."</p>
+                <p>"Easy WorkDrive for Zoho CRM has been great. Awesome automated features and support has been first rate."</p>
                 <strong>— Mark Leeder</strong>
               </article>
-              <article class="card">
+              <article class="review-card-clean">
                 <div class="review-stars">★★★★★</div>
                 <p>"Literally could not say enough how great this add-on is!! We would not think about using Zoho any other way."</p>
                 <strong>— Brian Dilks</strong>
-              </article>
-              <article class="card">
-                <div class="review-stars">★★★★★</div>
-                <p>"WorkDrive for Zoho CRM is fantastic! It seamlessly integrates, making document management a breeze directly within CRM. A real time-saver."</p>
-                <strong>— Fiberstream Admin</strong>
-              </article>
-              <article class="card">
-                <div class="review-stars">★★★★★</div>
-                <p>"It's a solid product. Does what it needs to do—connects your CRM to WorkDrive and automates the process. The responsiveness and support from the developer is shocking in the best way."</p>
-                <strong>— Joe Hargrave</strong>
-              </article>
-              <article class="card">
-                <div class="review-stars">★★★★★</div>
-                <p>"Superb experience with WorkDrive for Zoho CRM, smooth integration and outstanding customer support."</p>
-                <strong>— Stammkraft Admin</strong>
               </article>
             </div>
           </div>
@@ -533,24 +413,23 @@
         <section class="section">
           <div class="container">
             <div class="eyebrow">FAQs</div>
-            <h2 style="margin-bottom: 2rem;">Frequently Asked Questions</h2>
+            <h2 style="margin-bottom: 2rem; color: #1a1a2e;">Frequently Asked Questions</h2>
             <div class="grid-2">
-              <article class="card faq-card">
-                <h3><span class="faq-icon">?</span> What are the features?</h3>
-                <p><strong>Default Features:</strong> Automatic WorkDrive folder creation on record creation, related list widgets for Leads, Contacts, Accounts, Deals, and Campaigns with view, create, delete, copy, move, share, and upload actions.</p>
-                <p><strong>Additional Features:</strong> Workflow assignment for any module, related list integration for custom modules, and public share link generation.</p>
+              <article class="faq-item">
+                <h3>What are the features?</h3>
+                <p>Automatic folder creation, related list widgets, workflow assignment, and public share link generation.</p>
               </article>
-              <article class="card faq-card">
-                <h3><span class="faq-icon">?</span> Can I use it for all modules?</h3>
+              <article class="faq-item">
+                <h3>Can I use it for all modules?</h3>
                 <p>Yes, our extension supports all modules including custom modules.</p>
               </article>
-              <article class="card faq-card">
-                <h3><span class="faq-icon">?</span> Will your extension support my Zoho CRM?</h3>
+              <article class="faq-item">
+                <h3>Will your extension support my Zoho CRM?</h3>
                 <p>Compatible with Standard, Professional, Enterprise, CRM Plus, Zoho One, and Ultimate editions.</p>
               </article>
-              <article class="card faq-card">
-                <h3><span class="faq-icon">?</span> Can I get support?</h3>
-                <p>Our team is always available to provide support. Whether you need help with a technical issue or just have questions, our support team is here to assist you every step of the way.</p>
+              <article class="faq-item">
+                <h3>Can I get support?</h3>
+                <p>Our team is always available to provide support. Reach out anytime for assistance.</p>
               </article>
             </div>
           </div>
@@ -558,9 +437,9 @@
 
         <section class="section">
           <div class="container">
-            <div class="cta-section">
+            <div class="cta-panel-dark">
               <h2>Ready to Automate Your CRM File Management?</h2>
-              <p>Join 1,400+ teams using WorkDrive for Zoho CRM to save time and stay organized. Start your free 10-day trial today—no credit card required.</p>
+              <p>Join 1,400+ teams using WorkDrive for Zoho CRM to save time and stay organized. Start your free 10-day trial today.</p>
               <div class="cta-actions">
                 <a class="button button-primary" href="https://marketplace.zoho.com/app/crm/workdrive-for-zoho-crm" target="_blank" rel="noreferrer">Start Free Trial</a>
                 <a class="button button-secondary" href="extensions.html">Explore All Extensions</a>
@@ -578,10 +457,7 @@
                 <a class="brand" href="index.html" aria-label="Back to home">
                   <img src="images/insta web works logo main.png" alt="Insta Web Works" class="brand-logo" />
                 </a>
-                <p class="footer-intro">
-                  Specialist CRM consulting, Zoho CRM integration, workflow automation and custom
-                  software solutions for small and mid-sized businesses.
-                </p>
+                <p class="footer-intro">Specialist CRM consulting, Zoho CRM integration, workflow automation and custom software solutions.</p>
               </div>
               <div class="footer-column">
                 <h3>Services</h3>
@@ -616,17 +492,11 @@
                   <li><a href="mailto:admin@instawebworks.com.au">admin@instawebworks.com.au</a></li>
                   <li><a href="tel:+61000000000">+61 0000 000 000</a></li>
                   <li>Serving clients across Australia, USA &amp; Europe</li>
-                  <li>
-                    <a href="https://www.linkedin.com/company/insta-web-works/" target="_blank" rel="noreferrer">LinkedIn</a>
-                    /
-                    <a href="https://www.facebook.com/instawebworks/" target="_blank" rel="noreferrer">Facebook</a>
-                  </li>
                 </ul>
               </div>
             </div>
             <div class="footer-base">
               <span>© <span data-year></span> Insta Web Works. All rights reserved.</span>
-              <span>Built for CRM consulting, Zoho automation and custom software services.</span>
             </div>
           </div>
         </div>
