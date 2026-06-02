@@ -10,109 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
-      <style>
-      /* Page-specific overrides to match live site design */
-      .workdrive-page {
-        background: #ffffff;
-        color: #1a1a2e;
-      }
-      .workdrive-page .section {
-        padding: 4rem 0;
-      }
-      .workdrive-page .section:nth-of-type(even) {
-        background: #ffffff;
-      }
-      .workdrive-page .section:nth-of-type(odd) {
-        background: #ffffff;
-      }
-      .workdrive-page .section:nth-of-type(3) {
-        background: #f8f9fc;
-      }
-      .workdrive-page .section:nth-of-type(5) {
-        background: #f8f9fc;
-      }
-      .workdrive-page .section:nth-of-type(7) {
-        background: #f8f9fc;
-      }
-      .workdrive-hero {
-        background: radial-gradient(circle at top left, rgba(255, 189, 89, 0.2), transparent 28%),
-        radial-gradient(circle at 85% 14%, rgba(56, 58, 153, 0.18), transparent 24%),
-        radial-gradient(circle at 70% 75%, rgba(56, 58, 153, 0.1), transparent 24%),
-        linear-gradient(180deg, #fffefa 0%, #fcfaf7 52%, #f8f8ff 100%);
-        padding-top: 3rem;
-        padding-bottom: 4rem;
-      }
-      .workdrive-hero-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        align-items: center;
-      }
-      .workdrive-hero .eyebrow {
-        background: #ffffff;
-        border: 1px solid #e2e8f0;
-        color: #383A99;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-        font-size: 0.75rem;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        padding: 0.4rem 0.85rem;
-        display: inline-block;
-      }
-      .workdrive-hero h1 {
-        color: #1a1a2e;
-        font-size: clamp(2.5rem, 5vw, 3.5rem);
-        font-weight: 800;
-        line-height: 1.1;
-        letter-spacing: -0.03em;
-        margin: 1rem 0;
-        max-width: 100%;
-      }
-      .workdrive-hero p {
-        color: #555b70;
-        font-size: 1.05rem;
-        line-height: 1.6;
-        max-width: 55ch;
-        margin-bottom: 2rem;
-      }
-      .workdrive-hero .button-primary {
-        background: linear-gradient(135deg, #ff7b54, #ff4b2b);
-        border: none;
-        border-radius: 999px;
-        padding: 0.85rem 1.8rem;
-        font-weight: 700;
-        box-shadow: 0 8px 20px rgba(255, 75, 43, 0.25);
-      }
-      .workdrive-hero .button-secondary {
-        background: #ffffff;
-        color: #383A99;
-        border: 1px solid #d0d5e0;
-        border-radius: 999px;
-        padding: 0.85rem 1.8rem;
-        font-weight: 700;
-      }
-      .workdrive-hero .hero-actions {
-        gap: 1rem;
-        justify-content: flex-start;
-      }
-      .hero-video-wrapper {
-        position: relative;
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
-        aspect-ratio: 16/9;
-      }
-      .hero-video-wrapper iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
-      @media (max-width: 900px) {
-        .workdrive-hero-grid { grid-template-columns: 1fr; }
-        .workdrive-hero { text-align: center; }
-        .workdrive-hero .hero-actions { justify-content: center; }
-        .workdrive-hero p { margin-inline: auto; }
-      }
+    <style>
       .feature-card-white {
         background: #ffffff;
         border-radius: 20px;
@@ -226,7 +124,7 @@
       }
     </style>
   </head>
-  <body class="workdrive-page">
+  <body class="home-page">
     <div class="page-shell">
       <header class="site-header">
         <div class="container">
@@ -282,20 +180,42 @@
       </header>
 
       <main>
-        <section class="section workdrive-hero">
+        <section class="section home-hero">
           <div class="container">
-            <div class="workdrive-hero-grid">
-              <div class="workdrive-hero-content">
-                <div class="eyebrow">ZOHO EXTENSION</div>
+            <div class="home-hero-grid">
+              <div class="home-hero-copy">
+                <div class="eyebrow">Zoho Extension</div>
                 <h1>WorkDrive for Zoho CRM</h1>
                 <p>Automate file management with WorkDrive Zoho CRM integration. Auto-create folders, sync attachments, manage files in CRM. All modules supported. Free trial available from $10/month.</p>
                 <div class="hero-actions">
                   <a class="button button-primary" href="https://marketplace.zoho.com/app/crm/workdrive-for-zoho-crm" target="_blank" rel="noreferrer">Start Free Trial</a>
                   <a class="button button-secondary" href="extensions.html">Back to Extensions</a>
                 </div>
-              </div>
-              <div class="hero-video-wrapper">
-                <iframe src="https://www.youtube.com/embed/0iRX0FY_6P8" title="WorkDrive for Zoho CRM Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div class="hero-client-marquee" aria-label="Client logos">
+                  <span class="hero-client-label">Trusted by teams using our CRM and extension solutions</span>
+                  <div class="hero-client-marquee-shell">
+                    <div class="hero-client-track">
+                      <div class="hero-client-logo"><img src="images/client%20logos/699715e748dd58fa4875b7b4_logo.svg" alt="Client logo" loading="lazy" /></div>
+                      <div class="hero-client-logo"><img src="images/client%20logos/699715f397e7c1d1fb9892f4_logo%2520(2).svg" alt="Client logo" loading="lazy" /></div>
+                      <div class="hero-client-logo"><img src="images/client%20logos/699715f8ae99dde05f6742f7_logo%2520(3).svg" alt="Client logo" loading="lazy" /></div>
+                      <div class="hero-client-logo"><img src="images/client%20logos/699715fc5ada89b1995bbfe5_Logo%2520(4).svg" alt="Client logo" loading="lazy" /></div>
+                      <div class="hero-client-logo"><img src="images/client%20logos/699716014cc604ba281bd144_66351ee5724abf96338ce8b0_humana-customer_bw_logo%25203.svg" alt="Humana logo" loading="lazy" /></div>
+                      <div class="hero-client-logo"><img src="images/client%20logos/69971609b068caad6e83f741_logo%2520(5).svg" alt="Client logo" loading="lazy" /></div>
+                      <div class="hero-client-logo"><img src="images/client%20logos/6997160d52c4ed3b6cc16757_logo%2520(6).svg" alt="Client logo" loading="lazy" /></div>
+                      <div class="hero-client-logo"><img src="images/client%20logos/6a0d61d53ad492e4d9411f5c_verizon-logo_light.svg" alt="Verizon logo" loading="lazy" /></div>
+                    </div>
+                    <div class="hero-client-track" aria-hidden="true">
+                      <div class="hero-client-logo"><img src="images/client%20logos/699715e748dd58fa4875b7b4_logo.svg" alt="" loading="lazy" /></div>
+                      <div class="hero-client-logo"><img src="images/client%20logos/699715f397e7c1d1fb9892f4_logo%2520(2).svg" alt="" loading="lazy" /></div>
+                      <div class="hero-client-logo"><img src="images/client%20logos/699715f8ae99dde05f6742f7_logo%2520(3).svg" alt="" loading="lazy" /></div>
+                      <div class="hero-client-logo"><img src="images/client%20logos/699715fc5ada89b1995bbfe5_Logo%2520(4).svg" alt="" loading="lazy" /></div>
+                      <div class="hero-client-logo"><img src="images/client%20logos/699716014cc604ba281bd144_66351ee5724abf96338ce8b0_humana-customer_bw_logo%25203.svg" alt="" loading="lazy" /></div>
+                      <div class="hero-client-logo"><img src="images/client%20logos/69971609b068caad6e83f741_logo%2520(5).svg" alt="" loading="lazy" /></div>
+                      <div class="hero-client-logo"><img src="images/client%20logos/6997160d52c4ed3b6cc16757_logo%2520(6).svg" alt="" loading="lazy" /></div>
+                      <div class="hero-client-logo"><img src="images/client%20logos/6a0d61d53ad492e4d9411f5c_verizon-logo_light.svg" alt="" loading="lazy" /></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
