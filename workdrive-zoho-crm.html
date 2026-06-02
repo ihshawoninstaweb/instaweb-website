@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
-    <style>
+      <style>
       /* Page-specific overrides to match live site design */
       .workdrive-page {
         background: #ffffff;
@@ -20,16 +20,33 @@
         padding: 4rem 0;
       }
       .workdrive-page .section:nth-of-type(even) {
-        background: #f8f9fc;
+        background: #ffffff;
       }
       .workdrive-page .section:nth-of-type(odd) {
         background: #ffffff;
       }
+      .workdrive-page .section:nth-of-type(3) {
+        background: #f8f9fc;
+      }
+      .workdrive-page .section:nth-of-type(5) {
+        background: #f8f9fc;
+      }
+      .workdrive-page .section:nth-of-type(7) {
+        background: #f8f9fc;
+      }
       .workdrive-hero {
-        background: #ffffff;
-        padding-top: 6rem;
+        background: radial-gradient(circle at top left, rgba(255, 189, 89, 0.15), transparent 28%),
+        radial-gradient(circle at 85% 14%, rgba(56, 58, 153, 0.12), transparent 24%),
+        radial-gradient(circle at 70% 75%, rgba(56, 58, 153, 0.08), transparent 24%),
+        linear-gradient(180deg, #fffefa 0%, #fcfaf7 52%, #f8f8ff 100%);
+        padding-top: 3rem;
         padding-bottom: 4rem;
-        text-align: left;
+      }
+      .workdrive-hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
       }
       .workdrive-hero .eyebrow {
         background: #ffffff;
@@ -40,10 +57,11 @@
         font-weight: 700;
         letter-spacing: 0.06em;
         padding: 0.4rem 0.85rem;
+        display: inline-block;
       }
       .workdrive-hero h1 {
         color: #1a1a2e;
-        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
         font-weight: 800;
         line-height: 1.1;
         letter-spacing: -0.03em;
@@ -52,9 +70,9 @@
       }
       .workdrive-hero p {
         color: #555b70;
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         line-height: 1.6;
-        max-width: 60ch;
+        max-width: 55ch;
         margin-bottom: 2rem;
       }
       .workdrive-hero .button-primary {
@@ -76,6 +94,24 @@
       .workdrive-hero .hero-actions {
         gap: 1rem;
         justify-content: flex-start;
+      }
+      .hero-video-wrapper {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+        aspect-ratio: 16/9;
+      }
+      .hero-video-wrapper iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      @media (max-width: 900px) {
+        .workdrive-hero-grid { grid-template-columns: 1fr; }
+        .workdrive-hero { text-align: center; }
+        .workdrive-hero .hero-actions { justify-content: center; }
+        .workdrive-hero p { margin-inline: auto; }
       }
       .feature-card-white {
         background: #ffffff;
@@ -248,12 +284,19 @@
       <main>
         <section class="section workdrive-hero">
           <div class="container">
-            <div class="eyebrow">ZOHO EXTENSION</div>
-            <h1>WorkDrive for Zoho CRM</h1>
-            <p>Automate file management with WorkDrive Zoho CRM integration. Auto-create folders, sync attachments, manage files in CRM. All modules supported. Free trial available from $10/month.</p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="https://marketplace.zoho.com/app/crm/workdrive-for-zoho-crm" target="_blank" rel="noreferrer">Start Free Trial</a>
-              <a class="button button-secondary" href="extensions.html">Back to Extensions</a>
+            <div class="workdrive-hero-grid">
+              <div class="workdrive-hero-content">
+                <div class="eyebrow">ZOHO EXTENSION</div>
+                <h1>WorkDrive for Zoho CRM</h1>
+                <p>Automate file management with WorkDrive Zoho CRM integration. Auto-create folders, sync attachments, manage files in CRM. All modules supported. Free trial available from $10/month.</p>
+                <div class="hero-actions">
+                  <a class="button button-primary" href="https://marketplace.zoho.com/app/crm/workdrive-for-zoho-crm" target="_blank" rel="noreferrer">Start Free Trial</a>
+                  <a class="button button-secondary" href="extensions.html">Back to Extensions</a>
+                </div>
+              </div>
+              <div class="hero-video-wrapper">
+                <iframe src="https://www.youtube.com/embed/0iRX0FY_6P8" title="WorkDrive for Zoho CRM Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
             </div>
           </div>
         </section>
