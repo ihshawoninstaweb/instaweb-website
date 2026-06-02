@@ -258,6 +258,10 @@ body.home-page .site-header.header-on-light .nav-project-button {
   border-color: rgba(38, 40, 109, 0.92);
 }
 
+body.home-page .site-header.header-on-light .brand-logo {
+  filter: brightness(0);
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
