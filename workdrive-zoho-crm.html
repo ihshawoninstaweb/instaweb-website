@@ -11,6 +11,74 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <style>
+      .hero-video-side {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .hero-video-wrapper {
+        width: 100%;
+        max-width: 560px;
+        aspect-ratio: 16/9;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      }
+      .hero-video-wrapper iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      body.home-page .home-hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+      body.home-page .home-hero-copy {
+        text-align: left;
+        max-width: 100%;
+        width: 100%;
+      }
+      body.home-page .home-hero-copy h1 {
+        max-width: 100%;
+        margin-inline: 0;
+      }
+      body.home-page .home-hero-copy p {
+        max-width: 55ch;
+        margin-inline: 0;
+      }
+      body.home-page .hero-actions {
+        justify-content: flex-start;
+      }
+      body.home-page .hero-client-marquee {
+        margin: 2rem auto 0;
+        width: 100%;
+        max-width: 100%;
+      }
+      @media (max-width: 900px) {
+        body.home-page .home-hero-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        body.home-page .home-hero-copy {
+          text-align: center;
+        }
+        body.home-page .home-hero-copy h1,
+        body.home-page .home-hero-copy p {
+          margin-inline: auto;
+        }
+        body.home-page .hero-actions {
+          justify-content: center;
+        }
+        .hero-video-side {
+          order: -1;
+        }
+      }
+      .site-header .nav-wrap {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      }
       .feature-card-white {
         background: #ffffff;
         border-radius: 20px;
@@ -191,30 +259,35 @@
                   <a class="button button-primary" href="https://marketplace.zoho.com/app/crm/workdrive-for-zoho-crm" target="_blank" rel="noreferrer">Start Free Trial</a>
                   <a class="button button-secondary" href="extensions.html">Back to Extensions</a>
                 </div>
-                <div class="hero-client-marquee" aria-label="Client logos">
-                  <span class="hero-client-label">Trusted by teams using our CRM and extension solutions</span>
-                  <div class="hero-client-marquee-shell">
-                    <div class="hero-client-track">
-                      <div class="hero-client-logo"><img src="images/client%20logos/699715e748dd58fa4875b7b4_logo.svg" alt="Client logo" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/699715f397e7c1d1fb9892f4_logo%2520(2).svg" alt="Client logo" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/699715f8ae99dde05f6742f7_logo%2520(3).svg" alt="Client logo" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/699715fc5ada89b1995bbfe5_Logo%2520(4).svg" alt="Client logo" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/699716014cc604ba281bd144_66351ee5724abf96338ce8b0_humana-customer_bw_logo%25203.svg" alt="Humana logo" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/69971609b068caad6e83f741_logo%2520(5).svg" alt="Client logo" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/6997160d52c4ed3b6cc16757_logo%2520(6).svg" alt="Client logo" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/6a0d61d53ad492e4d9411f5c_verizon-logo_light.svg" alt="Verizon logo" loading="lazy" /></div>
-                    </div>
-                    <div class="hero-client-track" aria-hidden="true">
-                      <div class="hero-client-logo"><img src="images/client%20logos/699715e748dd58fa4875b7b4_logo.svg" alt="" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/699715f397e7c1d1fb9892f4_logo%2520(2).svg" alt="" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/699715f8ae99dde05f6742f7_logo%2520(3).svg" alt="" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/699715fc5ada89b1995bbfe5_Logo%2520(4).svg" alt="" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/699716014cc604ba281bd144_66351ee5724abf96338ce8b0_humana-customer_bw_logo%25203.svg" alt="" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/69971609b068caad6e83f741_logo%2520(5).svg" alt="" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/6997160d52c4ed3b6cc16757_logo%2520(6).svg" alt="" loading="lazy" /></div>
-                      <div class="hero-client-logo"><img src="images/client%20logos/6a0d61d53ad492e4d9411f5c_verizon-logo_light.svg" alt="" loading="lazy" /></div>
-                    </div>
-                  </div>
+              </div>
+              <div class="hero-video-side">
+                <div class="hero-video-wrapper">
+                  <iframe src="https://www.youtube.com/embed/0iRX0FY_6P8" title="WorkDrive for Zoho CRM Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+            <div class="hero-client-marquee" aria-label="Client logos">
+              <span class="hero-client-label">Trusted by teams using our CRM and extension solutions</span>
+              <div class="hero-client-marquee-shell">
+                <div class="hero-client-track">
+                  <div class="hero-client-logo"><img src="images/client%20logos/699715e748dd58fa4875b7b4_logo.svg" alt="Client logo" loading="lazy" /></div>
+                  <div class="hero-client-logo"><img src="images/client%20logos/699715f397e7c1d1fb9892f4_logo%2520(2).svg" alt="Client logo" loading="lazy" /></div>
+                  <div class="hero-client-logo"><img src="images/client%20logos/699715f8ae99dde05f6742f7_logo%2520(3).svg" alt="Client logo" loading="lazy" /></div>
+                  <div class="hero-client-logo"><img src="images/client%20logos/699715fc5ada89b1995bbfe5_Logo%2520(4).svg" alt="Client logo" loading="lazy" /></div>
+                  <div class="hero-client-logo"><img src="images/client%20logos/699716014cc604ba281bd144_66351ee5724abf96338ce8b0_humana-customer_bw_logo%25203.svg" alt="Humana logo" loading="lazy" /></div>
+                  <div class="hero-client-logo"><img src="images/client%20logos/69971609b068caad6e83f741_logo%2520(5).svg" alt="Client logo" loading="lazy" /></div>
+                  <div class="hero-client-logo"><img src="images/client%20logos/6997160d52c4ed3b6cc16757_logo%2520(6).svg" alt="Client logo" loading="lazy" /></div>
+                  <div class="hero-client-logo"><img src="images/client%20logos/6a0d61d53ad492e4d9411f5c_verizon-logo_light.svg" alt="Verizon logo" loading="lazy" /></div>
+                </div>
+                <div class="hero-client-track" aria-hidden="true">
+                  <div class="hero-client-logo"><img src="images/client%20logos/699715e748dd58fa4875b7b4_logo.svg" alt="" loading="lazy" /></div>
+                  <div class="hero-client-logo"><img src="images/client%20logos/699715f397e7c1d1fb9892f4_logo%2520(2).svg" alt="" loading="lazy" /></div>
+                  <div class="hero-client-logo"><img src="images/client%20logos/699715f8ae99dde05f6742f7_logo%2520(3).svg" alt="" loading="lazy" /></div>
+                  <div class="hero-client-logo"><img src="images/client%20logos/699715fc5ada89b1995bbfe5_Logo%2520(4).svg" alt="" loading="lazy" /></div>
+                  <div class="hero-client-logo"><img src="images/client%20logos/699716014cc604ba281bd144_66351ee5724abf96338ce8b0_humana-customer_bw_logo%25203.svg" alt="" loading="lazy" /></div>
+                  <div class="hero-client-logo"><img src="images/client%20logos/69971609b068caad6e83f741_logo%2520(5).svg" alt="" loading="lazy" /></div>
+                  <div class="hero-client-logo"><img src="images/client%20logos/6997160d52c4ed3b6cc16757_logo%2520(6).svg" alt="" loading="lazy" /></div>
+                  <div class="hero-client-logo"><img src="images/client%20logos/6a0d61d53ad492e4d9411f5c_verizon-logo_light.svg" alt="" loading="lazy" /></div>
                 </div>
               </div>
             </div>
