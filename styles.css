@@ -265,6 +265,12 @@ body.home-page .site-header.header-on-light .nav-project-button {
   min-width: 0;
 }
 
+.brand-logo {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
 .brand-mark {
   width: 42px;
   height: 42px;
@@ -2052,6 +2058,11 @@ body.home-page .hero-proof .stat-card span {
 
 .site-footer .brand {
   align-items: flex-start;
+}
+
+.site-footer .brand-logo {
+  height: 44px;
+  filter: brightness(0) invert(1);
 }
 
 .site-footer .brand-mark {
